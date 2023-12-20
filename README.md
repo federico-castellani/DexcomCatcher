@@ -1,1 +1,1 @@
-#Applicazione per leggere le scansioni dell'aplicazione Dexcom
+Applicazione per leggere le scansioni dell'aplicazione Dexcom
