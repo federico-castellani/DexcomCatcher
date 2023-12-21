@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     static TextView glicemiaT;
     static TextView frecciaT;
     static TextView timestampT;
+    static TextView timestamp2T;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         glicemiaT = findViewById(R.id.glicemia);
         frecciaT = findViewById(R.id.freccia);
         timestampT = findViewById(R.id.timestamp);
+        timestamp2T = findViewById(R.id.timestamp2);
 
 
         if (ContextCompat.checkSelfPermission(this, "com.dexcom.cgm.EXTERNAL_PERMISSION")

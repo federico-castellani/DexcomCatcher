@@ -21,6 +21,7 @@ public class DexcomReceiver extends BroadcastReceiver {
                 }
 
                 Bundle glucoseValueBundle = bgs.getBundle(String.valueOf(bgs.size() - 1)); //ultima scansione
+                Bundle glucoseValueBundle2 = bgs.getBundle(String.valueOf(bgs.size() - 2));
 
                 if(glucoseValueBundle != null) {
                     long maxTimestamp = 0L;
@@ -29,6 +30,7 @@ public class DexcomReceiver extends BroadcastReceiver {
 
                     int value = glucoseValueBundle.getInt("glucoseValue");
                     long timestamp = glucoseValueBundle.getLong("timestamp");
+                    long timestamp2 = glucoseValueBundle2.getLong("timestamp");
 
                     if (timestamp > maxTimestamp && value > 0) {
                         maxTimestamp = timestamp;
@@ -36,7 +38,7 @@ public class DexcomReceiver extends BroadcastReceiver {
                         freccia = glucoseValueBundle.getString("trendArrow");
                     }
                     if (maxTimestamp != 0 && glucoseValue > 0) {
-                        onDataReceived(glucoseValue, maxTimestamp, freccia);
+                        onDataReceived(glucoseValue, maxTimestamp, freccia, timestamp2);
                     }
                 }
 
@@ -44,10 +46,10 @@ public class DexcomReceiver extends BroadcastReceiver {
             }
         }
     }
-    private void onDataReceived(int glucoseValue, long timestamp, String freccia) {
+    private void onDataReceived(int glucoseValue, long timestamp, String freccia, long timestamp2) {
         MainActivity.glicemiaT.setText("Glicemia: " + glucoseValue + " mg/dl");
         MainActivity.frecciaT.setText(freccia);
         MainActivity.timestampT.setText("" + timestamp);
-
+        MainActivity.timestamp2T.setText("" + timestamp2);
     }
 }
