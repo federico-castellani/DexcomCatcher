@@ -27,7 +27,7 @@ public class DexcomService extends Service {
         createNotificationChannel();
         Notification notification = new Notification.Builder(this, CHANNEL_ID)
                 .setContentTitle("Dexcom Catcher")
-                .setContentText("Running in the background")
+                .setContentText("Esecuzione in background")
                 .setSmallIcon(R.drawable.notification_icon)
                 .setOngoing(true)
                 .build();
